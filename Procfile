@@ -1,0 +1,1 @@
+web: gunicorn famms.wsgi --log-file -
