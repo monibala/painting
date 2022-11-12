@@ -9,20 +9,24 @@ from datetime import date, datetime
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-@login_required
+
 def cart(request):
-    quantity = 1
-    user = request.user
-    product_id = request.GET.get('prod_id')
-    prod = product.objects.get(id = product_id)
-    
-    
-    item_already_in_cart = Cart.objects.filter(Q(product=prod.id)& Q(user=request.user)).exists()
-    if item_already_in_cart:
+    if request.user.is_authenticated:
+        quantity = 1
+        user = request.user
+        product_id = request.GET.get('prod_id')
+        prod = product.objects.get(id = product_id)
+        
+        
+        item_already_in_cart = Cart.objects.filter(Q(product=prod.id)& Q(user=request.user)).exists()
+        if item_already_in_cart:
+            return redirect('show_cart')
+        else:
+            Cart(user=user,product=prod,quantity=quantity).save()
         return redirect('show_cart')
     else:
-        Cart(user=user,product=prod,quantity=quantity).save()
-    return redirect('show_cart')
+        messages.warning(request,'Please Login Or Register.')
+        return redirect('login')  
 # def cart(request):
 #     cart_item = Order.objects.all()
 #     context = {'cart_item':cart_item}
