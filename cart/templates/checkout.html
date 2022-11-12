@@ -15,8 +15,8 @@
             <p>Very us move be blessed multiply night</p>
           </div>
           <div class="page_link">
-            <a href="index.html">Home</a>
-            <a href="checkout.html">Product Checkout</a>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'checkout' %}">Product Checkout</a>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
                      
                     <br> {{cart_items.product.title}}  
                   <br> 
-                  <h6>Quantity : {{cart_items.product.quantity}}</h6>
+                  <h6>Quantity : {{cart_items.quantity}}</h6>
                   <h6>Price : {{cart_items.product.price}} </h6>
                  
                 </h6>

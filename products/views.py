@@ -24,7 +24,7 @@ def productlist(request):
     print(data)
     context = { 'data':data , 'cat':cat}
     return render(request, 'productlist.html', context)
-@login_required
+
 def category_detail(request,pk):
     cat= category_types.objects.all()
     prod = product.objects.filter(category_name=pk)
