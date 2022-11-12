@@ -1,0 +1,116 @@
+{% extends 'base.html' %} 
+{% block body %} 
+{% load static %}
+<style>
+
+    .k{
+        margin-left:60px;
+        color:#fc0c3a;
+    }
+
+
+    .a{
+        background:#fc0c3a;
+        color:white;
+        border:none;
+        width:100px;
+        height:40px;
+    
+        font-size:15px;
+    
+    }
+
+    .b{
+        margin-left:-100px;
+    }
+
+
+    
+</style>
+
+<!-- Header Part -->
+         <!-- end header section -->
+
+
+<br><br>
+
+{% comment %} <h3 class='k'>Register yourself to secure shopping!!</h3> {% endcomment %}
+
+<br><br>
+
+
+<main class="main">
+    <div class="">
+        <div class="container">
+           
+        </div>
+    </div>
+    <section class="pt-150 pb-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 m-auto">
+                    <div class="row">
+                        <div class="col-lg-5" >
+                            <div class="login_wrap widget-taber-content p-30 background-white border-radius-10 mb-md-5 mb-lg-0 mb-sm-5">
+                                <div class="padding_eight_all bg-white">
+                                    <div class="heading_s1">
+                                        {% comment %} <h3 class="mb-30">Address</h3> {% endcomment %}
+                                    </div>
+                                    <div class="padding_eight_all bg-white">
+                                        <div class="list-group" >
+                                             <a href="#" class="list-group-item list-group-item-action ">
+                                            <b> Welcome <span class='text-capitalize'> {{request.user}}</span></b>
+                                            </a> 
+                                            <li class="list-group-item list-group-item-action"><a  href="{% url 'profile' %}">Profile</a></li>
+                                            <li class="list-group-item list-group-item-action"><a class='btn {{active}}' href="{% url 'address' %}">Address</a></li>
+                                          </div>
+                                        
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-6">
+                            <div class="login_wrap widget-taber-content p-30 background-white border-radius-5">
+                                <div class="padding_eight_all bg-white">
+                                    <div class="heading_s1">
+                                        <h3 class="mb-30">Address</h3>
+                                    </div>
+                                    <p class="mb-50 font-sm">
+                                        {% comment %} Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy {% endcomment %}
+                                    </p>
+
+                                        {% for a in addr  %}
+                                        
+                                        
+                                    <div class="card">
+                                        <h6 class="mb-30 mx-auto mt-2">Address {{forloop.counter}}</h6>
+                                        <div class="card-body">
+                                         Name: {{a.name}}
+                                         <br>
+                                         Locality: {{a.locality}}
+                                         <br>
+                                         Mobile: {{a.mobile}}
+                                         <br>
+                                         City: {{a.city}}
+                                         <br>
+                                         State: {{a.state}}
+                                         <br>
+                                         Zipcode: {{a.zipcode}}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    {% endfor %}
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<br><br><br><br>
+{% endblock %}

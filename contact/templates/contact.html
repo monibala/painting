@@ -1,0 +1,129 @@
+{% extends 'base.html' %} 
+{% block body%} 
+{% load static %}
+<style>
+      /* Responsive */
+     
+/* On smaller screens, decrease text size */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+ 
+ .slider_bg_box img {
+    object-fit: fill;
+ }
+ .arrival_section .arrival_bg_box img {
+    object-fit: fill;
+}
+.arrival_section .heading_container h2 {
+    font-size: 2rem;
+    margin-left:230px;
+ }
+ .arrival_section p {
+    font-size: 1.0rem;
+    margin-left:230px;
+ }
+ .arrival_section a {
+   width:45%;
+  font-size:1.5rem;
+    margin-left:220px;
+ 
+    }
+}
+@media only screen and (min-width:200px) and (max-width:567px)
+    {
+       .slider_section{
+          width:100%;
+         
+       }
+       .slider_bg_box img {
+    object-fit: fill;
+ }
+       .arrival_section .arrival_bg_box img {
+    object-fit: fill;
+}
+.arrival_section .heading_container h2 {
+    font-size: 1.5rem;
+    margin-left:130px;
+ }
+ .arrival_section p {
+    font-size: 1.0rem;
+    margin-left:130px;
+ }
+ .arrival_section a {
+    display: flex;
+    width:55%;
+    font-size:1.5rem;
+    margin-left:100px;
+ 
+    }
+ }
+
+</style>
+<!-- Header Part -->
+         <!-- end header section -->
+    <!-- inner page section -->
+    <section class="inner_page_head">
+        <div class="container_fuild">
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="full">
+                    <h3>Contact us</h3>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </section>
+     <!-- end inner page section -->
+     <!-- why section -->
+     <section class="why_section layout_padding">
+        <div class="container">
+        
+           <div class="row">
+              <div class="col-lg-8 offset-lg-2">
+                 <div class="full">
+                    <form action="" method="POST">
+                     {% csrf_token %}
+                       <fieldset>
+                          <input type="text" placeholder="Enter your full name" name="name" required />
+                          <input type="email" placeholder="Enter your email address" name="email" required />
+                          <input type="text" placeholder="Enter subject" name="subject" required />
+                          <textarea placeholder="Enter your message" type="text" name="msg" required ></textarea>
+                          <input type="submit" value="Submit"/>
+                       </fieldset>
+                    </form>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </section>
+     <!-- end why section -->
+     <!-- arrival section -->
+     <section class="arrival_section">
+        <div class="container">
+           <div class="box">
+              <div class="arrival_bg_box">
+                 <img src="{% static 'images/arrival-bg.png' %}" alt="">
+              </div>
+              <div class="row">
+                 <div class="col-md-6 ml-auto">
+                    <div class="heading_container remove_line_bt">
+                       <h2>
+                          #NewArrivals
+                       </h2>
+                    </div>
+                    <p style="margin-top: 20px;margin-bottom: 30px;">
+                       Vitae fugiat laboriosam officia perferendis provident aliquid voluptatibus dolorem, fugit ullam sit earum id eaque nisi hic? Tenetur commodi, nisi rem vel, ea eaque ab ipsa, autem similique ex unde!
+                    </p>
+                    <a href="">
+                    Shop Now
+                    </a>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </section>
+     <!-- end arrival section -->
+     <!-- footer section -->
+ 
+     <!-- footer section -->
+ 
+{% endblock %}

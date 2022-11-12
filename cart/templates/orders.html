@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+<title>Orcha | {% block title %} Checkout{% endblock title %}</title>
+
+
+{% block body %}
+
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+      <div class="container">
+        <div
+          class="banner_content d-md-flex justify-content-between align-items-center"
+        >
+          <div class="mb-3 mb-md-0">
+            <h2 style='color:green'>Order Placed Sucessfully!!</h2>
+            <p>Thank You for shopping with us!!</p>
+          </div>
+          <div class="page_link">
+            <a href="index.html">Home</a>
+            <a href="checkout.html">Order Placed</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================End Home Banner Area =================-->
+
+  <!--================Checkout Area =================-->
+{% comment %} 
+      <div class="cupon_area">
+        <div class="check_title">
+          <h2>
+            Have a coupon?
+            <a href="#">Click here to enter your code</a>
+          </h2>
+        </div>
+        <input type="text" placeholder="Enter coupon code" />
+        <a class="tp_btn" href="#">Apply Coupon</a>
+      </div> {% endcomment %}
+      <br><br><br>
+      <div class="billing_details">
+        <div class="row">
+          <div class="col-lg-8">
+            
+            
+              <div class="col-md-6 form-group p_star">
+                
+                
+              </div>
+              <div class="col-md-6 form-group p_star">
+                
+               
+              </div>
+              {% for op in order_placed %}
+              
+            
+              <div class="col-md-10 form-group " style='margin-left:30px;'>
+                <div>
+                  <h6>Product :  <img width="60" height="60" src="/media/{{op.product.image}}  " alt="">
+                     
+                    <br> {{op.product.name}} 
+                  <br> 
+                  <h6>Quantity : {{op.quantity}}</h6>
+                  <h6>Price : {{op.product.price}}</h6>
+                 
+                </h6>
+                  
+                </div>
+              </div>
+             
+           
+             
+              <h4 style='margin-left:45px;'>Total : ${{op.total_cost}}</h4> 
+
+         
+          </div>
+          
+
+    <div class=col-lg-8>
+        <p> <b style='color:black '> Order Status: {{op.status}} </b></p>
+
+        {% if op.status == "Accepted" %}
+        
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        {% endif %}
+
+        {% if op.status == "Packed" %}
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          {% endif %}
+
+        {% if op.status == "On The Way"  %}
+          <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+
+          {% endif %}
+
+          
+        {% if op.status == "Cancel" %}
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          {% endif %}
+          
+
+        {% if op.status == "Delivered" %}
+        <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          {% endif %}
+          <hr>
+       </div>
+     
+    </div>    
+    
+        
+        </div>
+        {% endfor %}  
+      </div>
+      <h4 style='margin-left:45px;'>Shipping :$70</h4>
+      <h4 style='margin-left:45px;'>Amount To pay :${{pay}}</h4>
+    </div>
+</div>
+    </div>
+    
+  </section>
+
+<br>
+<br>
+{% endblock body %}

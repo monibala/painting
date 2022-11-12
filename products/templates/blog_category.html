@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+{% load static %}
+
+
+<style>
+    .h{
+        margin-left:40px;
+    }
+   /* Hover */
+   ul {
+            padding: 0;
+            list-style: none;
+            /* background: #f2f2f2;
+            width: 500px; */
+        }
+ 
+        ul li {
+            display: block;
+            position: relative;
+            line-height: 21px;
+            text-align: left;
+        }
+        ul li a {
+            display: block;
+            /* padding: 8px 25px; */
+            color: #333;
+            text-decoration: none;
+        }
+        ul li a:hover {
+            color: #fff;
+            /* background: #939393; */
+        }
+        ul li ul.dropdown {
+            min-width: 100%;
+            /* Set width of the dropdown */
+            /* background: #f2f2f2; */
+            display: none;
+            /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+            position: relative;
+            z-index: 999;
+            padding: 8px 2px;
+            /* left: 0; */
+            top:10px;
+            
+            left: 5px;
+            
+        }
+        ul li:hover ul.dropdown {
+            display: block;
+            
+            /* Display the dropdown */
+        }
+
+</style>
+
+
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+      <div class="container">
+        <div class="banner_content d-md-flex justify-content-between align-items-center">
+          <div class="mb-3 mb-md-0">
+            <h2>Shop Category</h2>
+            <p>Very us move be blessed multiply night</p>
+          </div>
+          <div class="page_link">
+            <a href="index.html">Home</a>
+            <a href="category.html">Shop</a>
+            <a href="category.html">{{cats.category_name}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================End Home Banner Area =================-->
+
+  <!--================Category Product Area =================-->
+  <section class="cat_product_area section_gap">
+    <div class="container">
+      <div class="row flex-row-reverse">
+        <div class="col-lg-12">
+         
+          
+          <div class="latest_product_inner">
+            <div class="row">
+               {% for a in prod %}
+               
+              <div class="col-lg-3 col-md-6">
+                <div class="single-product">
+                  <div class="product-img">
+                    <img
+                      class="card-img"
+                      src="/media/{{a.image}}"
+                      alt="" style="height:300px;"
+                    />
+                    <div class="p_icon" style='background:#ff3333;color:black;width:300px;'>
+                      <a href="{% url 'productdetail' a.id %}" style='background:black;color:white'>
+                        <i class="ti-eye" ></i>
+                      </a>
+                      <a href="#" style='background:black;color:white'>
+                        <i class="ti-heart"></i>
+                      </a>
+                      {% comment %} <a href="{% url 'add-to-cart' %}?prod_id={{a.id}}">
+                        <i class="ti-shopping-cart"></i> {% endcomment %}
+                      </a>
+                    </div>
+                  </div>
+                  <div class="product-btm">
+                    <a href="#" class="d-block">
+                      <h4 style="color:black">{{a.product_name}}</h4>
+                    </a>
+                    <div class="mt-3">
+                      <span class="mr-4">${{a.price}}</span>
+                      <del>${{a.discounted_price}}</del>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              </div>
+          </div>
+        </div>
+       </div>
+       </div>
+       </section>
+    
+
+
+{% endblock body %}
