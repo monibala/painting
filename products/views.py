@@ -7,11 +7,24 @@ from .models import *
 from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 # Create your views here.
 def products(request):
     cat = category_types.objects.all()
     prod = product.objects.all()
-    context = {'cat':cat, 'prod':prod}
+    p = Paginator(prod, 6)  # creating a paginator object
+    # getting the desired page number from url
+    page_number = request.GET.get('page')
+    try:
+        page_obj = p.get_page(page_number)  # returns the desired page object
+    except page_number < 1:
+        # if page_number is not an integer then assign the first page
+        page_obj = p.page(1)
+    except page_number==0:
+        # if page is empty then return last page
+        page_obj = p.page(p.num_pages)
+    # context = {'page_obj': page_obj}
+    context = {'cat':cat, 'prod':prod, 'page_obj': page_obj}
     return render(request, 'products.html',context)
 
 def productlist(request):

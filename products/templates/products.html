@@ -53,6 +53,18 @@
             
             /* Display the dropdown */
         }
+      
+.pagination {
+  display:flexbox;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
 
 </style>
 
@@ -98,7 +110,8 @@
           
           <div class="latest_product_inner">
             <div class="row">
-               {% for a in prod %}
+              
+               {% for a in page_obj %}
               <div class="col-lg-4 col-md-6">
                 <div class="single-product">
                   <div class="product-img">
@@ -524,6 +537,57 @@
       </div>
     </div>
   </section>
-
+<!-- Pagination -->
+<!-- <center>
+  {%if page_obj.has_previous %} {# whether the previous page exists #}
+      <a href="?page={{page_obj.previous_page_number}}"><</a> {# link to the prev page #}
+  {% endif %}
+  <span>{{page_obj.number}}</span> {# the current page number #}
+  
+  {%if page_obj.has_next %} {# whether the next page exists #}
+      <a href="?page={{page_obj.next_page_number}}">></a> {# link to the next page #}
+  {% endif %}
+</center> -->
+<div class="pagination" style="margin-left:500px;">
+  {% if page_obj.has_other_pages %}
+  <!-- <nav>
+      <ul class="pagination theme-colored" style="font-size:20px;"> -->
+          {% if page_obj.has_previous %}
+          <!-- <li> -->
+            <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+          <!-- </li> -->
+          {% else %}
+          <!-- <li class="disabled"> -->
+            <span>&laquo;</span>
+          <!-- </li> -->
+          {% endif %}
+          {% for i in page_obj.paginator.page_range %}
+          {% if  forloop.counter == 1 and request.GET.page == none %}
+          <!-- <li class="active"> -->
+            <a>{{i}} <span class="sr-only">(current)</span></a>
+          <!-- </li> -->
+          {% elif  request.GET.page == i|slugify %}
+          <!-- <li class="active"> -->
+            <a>{{i}} <span class="sr-only">(current)</span></a>
+          <!-- </li> -->
+          {% else %}
+          <!-- <li> -->
+            <a href="?page={{ i }}">{{ i }}</a>
+          <!-- </li> -->
+          {% endif %}
+          {% endfor %}
+          {% if page_obj.has_next %}
+          <!-- <li> -->
+            <a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+          <!-- </li> -->
+          {% else %}
+          <!-- <li class="disabled"> -->
+            <span>&raquo;</span>
+          <!-- </li> -->
+          {% endif %}
+      <!-- </ul>
+  </nav> -->
+  {% endif %}
+</div>
 
 {% endblock body %}
