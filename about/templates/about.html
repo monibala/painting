@@ -1,3 +1,7 @@
+<!-- owl carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 {% extends "base.html" %}
 
 {% block body %}
@@ -274,6 +278,61 @@
          </div>
       </section>
       </section>
+      <section class="product_section layout_padding">
+         <div class="container">
+            <div class="heading_container heading_center">
+               
+               <h2>
+                  Our <span>Category</span>
+               </h2>
+            </div>
+           
+            <!-- <div class="row"> -->
+            <div class="owl-carousel owl-theme">
+             {% for p in cat %}
+             <div class="prdouct-img">
+             <div class="text">
+              
+          
+               <div class="item" style="height:300px;">
+                 
+                     <img
+                    class="card-img"
+                    src="/media/{{p.image}}"
+                    alt="" style="height:300px;"
+                  />
+               </div>
+               
+               </div>  
+               <h4 style="text-align: center;margin-top: 30px;">
+                 <a href = "{% url 'blog_category' p.id %}" style="color:black;">{{p.category_name | capfirst }}</a>
+               </h4>
+              </div>
+               {% endfor %}
+       
+             </div>
+             </div>
+             </section>
+            
+             <script>
+     
+
+               var owl = $('.owl-carousel');
+               owl.owlCarousel({
+                   items:4,
+                   loop:true,
+                   margin:10,
+                   autoplay:true,
+                   autoplayTimeout:800,
+                   autoplayHoverPause:true
+               });
+               $('.play').on('click',function(){
+                   owl.trigger('play.owl.autoplay',[800])
+               })
+               $('.stop').on('click',function(){
+                   owl.trigger('stop.owl.autoplay')
+               })
+             </script>
       <!-- end why section -->
       <!-- arrival section -->
       {% comment %} <section class="arrival_section">

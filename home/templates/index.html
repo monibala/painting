@@ -371,6 +371,7 @@
                         </h5>
                         <p>
                            variations of passages of Lorem Ipsum available
+                           variations of passages of Lorem Ipsum available
                         </p>
                      </div>
                   </div>
@@ -486,6 +487,7 @@
                         </h5>
                         <p>
                            variations of passages of Lorem Ipsum available
+                           variations of passages of Lorem Ipsum available
                         </p>
                      </div>
                   </div>
@@ -506,6 +508,7 @@
                            Best Quality
                         </h5>
                         <p>
+                           variations of passages of Lorem Ipsum available
                            variations of passages of Lorem Ipsum available
                         </p>
                      </div>
@@ -656,7 +659,7 @@
                      </div>
                      </div>
                      <br>
-                     <div class="product-btm">
+                     <div class="product-btm" style="text-align: center;">
                         <a href="{% url 'productdetail' n.id%}" class="d-block">
                           <h4 style="color:black">{{n.product_name}}</h4>
                         </a>
@@ -714,10 +717,11 @@
          <section class="product_section layout_padding">
             <div class="container">
                <div class="heading_container heading_center">
-                  
+               <a href=" {% url 'products' %}">   
                   <h2>
                      New <span>Arrivals</span>
                   </h2>
+                  </a>
                </div>
                <div class="row">
               
@@ -742,7 +746,7 @@
                         </div>
                         </div>
                         <br>
-                        <div class="product-btm">
+                        <div class="product-btm" style="text-align: center;">
                            <a href="{% url 'productdetail' n.id%}" class="d-block">
                              <h4 style="color:black">{{n.product_name}}</h4>
                            </a>
@@ -788,11 +792,11 @@
                   {% endif %}
                 {% endfor %}
                </div>
-               <div class="btn-box">
+               <!-- <div class="btn-box">
                   <a href="{% url 'products' %}">
                   View All products
                   </a>
-               </div>
+               </div> -->
             </div>
          </section>
          <!-- end product section -->
@@ -953,11 +957,11 @@
          {% endfor %}
  
        </div>
-       <div class="btn-box">
+       <!-- <div class="btn-box">
          <a href="{% url 'products' %}">
          View All products
          </a>
-      </div>
+      </div> -->
        </div>
        </section>  
          <!-- <div class="col-sm-6 col-md-4 col-lg-3" >
