@@ -75,7 +75,7 @@
         <div class="banner_content d-md-flex justify-content-between align-items-center">
           <div class="mb-3 mb-md-0">
             <h2>Shop Category</h2>
-            <p>Very us move be blessed multiply night</p>
+            <p></p>
           </div>
           <div class="page_link">
             <a href="index.html">Home</a>
@@ -93,7 +93,7 @@
     <div class="container">
       <div class="row flex-row-reverse">
         <div class="col-lg-9">
-          <div class="product_top_bar">
+          <!-- <div class="product_top_bar">
             <div class="left_dorp">
               <select class="sorting">
                 <option value="1">Default sorting</option>
@@ -106,7 +106,7 @@
                 <option value="4">Show 16</option>
               </select>
             </div>
-          </div>
+          </div> -->
           
           <div class="latest_product_inner">
             <div class="row">
@@ -120,7 +120,7 @@
                       src="/media/{{a.image}}"
                       alt="" style="height:300px;"
                     />
-                    <div class="p_icon">
+                    <div class="p_icon" style="background-color: #f7444e;width:100%">
                       <a href="{% url 'productdetail' a.id %}">
                         <i class="ti-eye"></i>
                       </a>
@@ -548,7 +548,7 @@
       <a href="?page={{page_obj.next_page_number}}">></a> {# link to the next page #}
   {% endif %}
 </center> -->
-<div class="pagination" style="margin-left:500px;">
+<div class="pagination" style="margin-left:600px;">
   {% if page_obj.has_other_pages %}
   <!-- <nav>
       <ul class="pagination theme-colored" style="font-size:20px;"> -->
