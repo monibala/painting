@@ -78,9 +78,9 @@
             <p></p>
           </div>
           <div class="page_link">
-            <a href="index.html">Home</a>
-            <a href="category.html">Shop</a>
-            <a href="category.html">Women Fashion</a>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'products' %}">Shop</a>
+            <a href="{% url 'products' %}">{{cat.category_name}}</a>
           </div>
         </div>
       </div>
@@ -115,11 +115,13 @@
               <div class="col-lg-4 col-md-6">
                 <div class="single-product">
                   <div class="product-img">
+                    <a href="{% url 'productdetail' a.id %}">
                     <img
                       class="card-img"
                       src="/media/{{a.image}}"
                       alt="" style="height:300px;"
                     />
+                  </a>
                     <div class="p_icon" style="background-color: #f7444e;width:100%">
                       <a href="{% url 'productdetail' a.id %}">
                         <i class="ti-eye"></i>
