@@ -29,10 +29,7 @@
             color: #333;
             text-decoration: none;
         }
-        ul li a:hover {
-            color: #fff;
-            /* background: #939393; */
-        }
+       
         ul li ul.dropdown {
             min-width: 100%;
             /* Set width of the dropdown */
@@ -75,7 +72,7 @@
         <div class="banner_content d-md-flex justify-content-between align-items-center">
           <div class="mb-3 mb-md-0">
             <h2>Shop Category</h2>
-            <p></p>
+            <p>Buy Indian Contemporary Paintings at Lowest Price in our Shopping Website.</p>
           </div>
           <div class="page_link">
             <a href="{% url 'index' %}">Home</a>
@@ -123,10 +120,10 @@
                     />
                   </a>
                     <div class="p_icon" style="background-color: #f7444e;width:100%">
-                      <a href="{% url 'productdetail' a.id %}">
+                      <a href="{% url 'productdetail' a.id %}" style='background:black;color:white'>
                         <i class="ti-eye"></i>
                       </a>
-                      <a href="#">
+                      <a href="#" style='background:black;color:white'>
                         <i class="ti-heart"></i>
                       </a>
                       {% comment %} <a href="{% url 'add-to-cart' %}?prod_id={{a.id}}">
@@ -591,5 +588,6 @@
   </nav> -->
   {% endif %}
 </div>
+
 
 {% endblock body %}
