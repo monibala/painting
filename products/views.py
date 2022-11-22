@@ -12,7 +12,7 @@ from django.core.paginator import Paginator
 def products(request):
     cat = category_types.objects.all()
     prod = product.objects.all()
-    p = Paginator(prod, 6)  # creating a paginator object
+    p = Paginator(prod, 100)  # creating a paginator object
     # getting the desired page number from url
     page_number = request.GET.get('page')
     try:
